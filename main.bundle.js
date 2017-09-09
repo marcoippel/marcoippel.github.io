@@ -1,15 +1,19 @@
-webpackJsonp([1],{
+webpackJsonp(["main"],{
 
-/***/ "../../../../../src async recursive":
+/***/ "../../../../../src/$$_gendir lazy recursive":
 /***/ (function(module, exports) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../src async recursive";
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
@@ -21,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body{\r\n    \r\n}", ""]);
+exports.push([module.i, "body{\r\n    \r\n}\r\n#map {\r\n    height: 700px;\r\n    width: 600px;\r\n  }\r\n\r\n  .cities{\r\n    font-size: 11px;\r\n    \r\n  }\r\n.city{\r\n  cursor: pointer;\r\n}\r\n  .cities .span{\r\n    float: left;\r\n  }", ""]);
 
 // exports
 
@@ -34,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <div id=\"fb-root\"></div>\n  <!-- Navigation -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n    <div class=\"container\">\n      <a class=\"navbar-brand\" href=\"#\">Afvalkalender</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\"\n        aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n      <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n        <ul class=\"navbar-nav ml-auto\">\n          <li class=\"nav-item active\">\n            <a class=\"nav-link\" href=\"#\">Home\n                <span class=\"sr-only\">(current)</span>\n              </a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">About</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">Services</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">Contact</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n  <header class=\"masthead\">\n    <div class=\"overlay\">\n      <!-- \n      Zoetermeer \n      Lopik\n      Ede\n      Renkum\n      Veenendaal\n      Wageningen\n      Ermelo\n      Putten\n      Breda\n      Tilburg\n      Rhenen\n      Werkendam\n      Kampen\n      Moerdijk\n      Krimpen aan den IJssel\n      Assen\n      Loon op zand\n      Dongen\n      Oss\n      Utrecht\n      Hilvarenbeek \n      Amstelveen\n      Hoogezand-Sappemeer\n      Dronten\n      Amerongen\n      Doorn \n      Driebergen-Rijsenburg \n      Leersum\n      Maarn\n      stichtsevecht\n      Teylingen\n      Westervoort\n      Noordenveld\n      Leusden\n      Harderwijk \n      Oldebroek \n      Elburg\n      Nunspeet\n      Waalwijk\n      Gilze en Rijen\n      Renkum\n      Veendam\n      Leudal\n      Amsterdam Centrum\n      Lansingerland \n      Haarlem\n      Wageningen\n      Etten-Leur\n      Dongen\n      Aalburg\n      Borger Odoorn\n      Aa en Hunze\n      Vlagtwedde\n      Barneveld\n      Oosterhout\n      Smallingerland\n      Leusden\n      Pekela\n      Lingewaard\n      Amersfoort\n      Stadskanaal\n      Maasgouw\n      Ede\n      Slochteren\n      Tynaarlo\n      Rheden\n      Roermond\n      nieuwegein\n      baarn\n      soest\n      zeist\n      ijselsteijn \n      Bergeijk\n      Best\n      Bladel\n      Boekel\n      Boxmeer\n      Buren\n      Cuijk\n      Culemborg\n      Echt-Susteren\n      Eersel\n      Geldermalsen\n      Grave\n      Helmond\n      Heumen\n      Lingewaal\n      Maasdriel\n      Mill en Sint Hubert\n      Neder-Betuwe\n      Neerijnen\n      Nuenen\n      Oirschot\n      Reusel-De Mierden\n      Sint Anthonis\n      Someren\n      Son en Breugel\n      Terneuzen\n      Tiel\n      Veldhoven\n      West Maas en Waal\n      Zaltbommel\n      -->\n      <div class=\"container\">\n        <h1 class=\"display-1 text-white\">Afvalkalender chatbot</h1>\n        <h2 class=\"display-4 text-white\">Nooit meer te laat met het afval buiten zetten!</h2>\n      </div>\n    </div>\n  </header>\n\n  <section>\n    <div class=\"container\">\n      <div class=\"row align-items-center\">\n        <div class=\"col-md-6 order-2\">\n          <div class=\"p-5\">\n\n            <img class=\"img-fluid\" src=\"./../assets/images/animation.gif\" alt=\"\">\n          </div>\n        </div>\n        <div class=\"col-md-6 order-1\">\n          <div class=\"p-5\">\n            <h2 class=\"display-4\">Hoe werkt het</h2>\n            <p>Wil je weten welke afvalsoort er wanneer naar buiten moet? Vraag het de afvalkalender chatbot. Op basis van je\n              postcode en huisnummer kan de afvalkalender chatbot je vertellen welke afvalsoort er wanneer wordt opgehaald.\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <section>\n    <div class=\"container\">\n      <div class=\"row align-items-center\">\n        <div class=\"col-md-6\">\n          <div class=\"p-5\">\n            <img class=\"img-fluid rounded-circle\" src=\"./../assets/images/Pushbericht.png\" alt=\"\">\n          </div>\n        </div>\n        <div class=\"col-md-6\">\n          <div class=\"p-5\">\n            <h2 class=\"display-4\">Push notificaties</h2>\n            <p>Met de afvalkalender chatbot is het mogelijk om notificaties te ontvangen als er afval wordt opgehaald. U krijgt\n              de avond ervoor om 19:00 uur een berichtje op uw facebook messenger over welke afvalsoort er wordt opgehaald.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <section>\n    <div class=\"container\">\n      <div class=\"row align-items-center\">\n        <div class=\"col-md-6 order-2\">\n          <div class=\"p-5\">\n            <img class=\"img-fluid rounded-circle\" src=\"./../assets/images/messenger_code.png\" alt=\"\">\n          </div>\n        </div>\n        <div class=\"col-md-6 order-1\">\n          <div class=\"p-5\">\n            <h2 class=\"display-4\">Let's chat!</h2>\n            <p>Om de chat te beginnen scan de code met facebook messenger of gebruik de onderstaande knop.</p>\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- Footer -->\n  <footer class=\"py-5 bg-dark\">\n    <div class=\"container\">\n      <p class=\"m-0 text-center text-white\">Copyright &copy; Your Website 2017</p>\n    </div>\n    <!-- /.container -->\n  </footer>\n\n  \n\n"
+module.exports = "<div id=\"fb-root\"></div>\n<!-- Navigation -->\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark fixed-top\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">Afvalkalender</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\"\n      aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n      <ul class=\"navbar-nav ml-auto\">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" href=\"#\">Home\n                <span class=\"sr-only\">(current)</span>\n              </a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">About</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Services</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Contact</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n\n<header class=\"masthead\">\n  <div class=\"overlay\">\n    <div class=\"container\">\n      <h1 class=\"display-1 text-white\">Afvalkalender chatbot</h1>\n      <h2 class=\"display-4 text-white\">Nooit meer te laat met het afval buiten zetten!</h2>\n    </div>\n  </div>\n</header>\n\n<section>\n  <div class=\"container\">\n    <div class=\"row align-items-center\">\n      <div class=\"col-md-6 order-2\">\n        <div class=\"p-5\">\n\n          <img class=\"img-fluid\" src=\"./../assets/images/animation.gif\" alt=\"\">\n        </div>\n      </div>\n      <div class=\"col-md-6 order-1\">\n        <div class=\"p-5\">\n          <h2 class=\"display-4\">Hoe werkt het</h2>\n          <p>Wil je weten welke afvalsoort er wanneer naar buiten moet? Vraag het de afvalkalender chatbot. Op basis van je\n            postcode en huisnummer kan de afvalkalender chatbot je vertellen welke afvalsoort er wanneer wordt opgehaald.\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<section>\n  <div class=\"container\">\n    <div class=\"row align-items-center\">\n      <div class=\"col-md-6\">\n        <div class=\"p-5\">\n          <img class=\"img-fluid rounded-circle\" src=\"./../assets/images/Pushbericht.png\" alt=\"\">\n        </div>\n      </div>\n      <div class=\"col-md-6\">\n        <div class=\"p-5\">\n          <h2 class=\"display-4\">Push notificaties</h2>\n          <p>Met de afvalkalender chatbot is het mogelijk om notificaties te ontvangen als er afval wordt opgehaald. U krijgt\n            de avond ervoor om 19:00 uur een berichtje op uw facebook messenger over welke afvalsoort er wordt opgehaald.</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<section>\n  <div class=\"container\">\n    <div class=\"row align-items-center\">\n      <div class=\"col-md-6 order-1\">\n        <div class=\"p-5 cities\">\n          <!-- <ul> -->\n            <span *ngFor=\"let city of cities\">\n              <a class=\"city\" [attr.data-lat]=\"city.lat\" [attr.data-long]=\"city.long\">{{city.name}}</a>\n            </span>\n          <!-- </ul> -->\n        </div>\n      </div>\n      <div class=\"col-md-6 order-2\">\n        <div class=\"p-5\">\n          <div id=\"map\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<section>\n  <div class=\"container\">\n    <div class=\"row align-items-center\">\n      <div class=\"col-md-6 order-2\">\n        <div class=\"p-5\">\n          <img class=\"img-fluid rounded-circle\" src=\"./../assets/images/messenger_code.png\" alt=\"\">\n        </div>\n      </div>\n      <div class=\"col-md-6 order-1\">\n        <div class=\"p-5\">\n          <h2 class=\"display-4\">Let's chat!</h2>\n          <a target=\"_blank\" href=\"https://m.me/afvalkalender\">\n              Message us on Facebook\n           </a>\n          <p>Om de chat te beginnen scan de code met facebook messenger of gebruik de onderstaande knop.</p>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- Footer -->\n<footer class=\"py-5 bg-dark\">\n  <div class=\"container\">\n    <p class=\"m-0 text-center text-white\">Copyright &copy; Your Website 2017</p>\n  </div>\n  <!-- /.container -->\n</footer>\n"
 
 /***/ }),
 
@@ -42,29 +46,67 @@ module.exports = "  <div id=\"fb-root\"></div>\n  <!-- Navigation -->\n  <nav cl
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_cityService__ = __webpack_require__("../../../../../src/app/services/cityService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(el, cityService) {
+        this.el = el;
+        this.cityService = cityService;
         this.title = 'app';
+        this.map = null;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: { lat: 52.164786, lng: 5.541559 }
+        });
+        this.cityService.getCities().subscribe(function (response) { return _this.parseCities(response); }, function (error) { console.log(error); });
+    };
+    AppComponent.prototype.parseCities = function (cities) {
+        this.cities = cities.sort(this.compare);
+        var markers = cities.map(function (city, i) {
+            return new google.maps.Marker({
+                position: { lat: +city.lat, lng: +city.long },
+                label: city.name[0],
+                title: city.name
+            });
+        });
+        var markerCluster = new MarkerClusterer(this.map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    };
+    AppComponent.prototype.compare = function (a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_cityService__["a" /* CityService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_cityService__["a" /* CityService */]) === "function" && _b || Object])
 ], AppComponent);
 
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -73,16 +115,20 @@ AppComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_cityService__ = __webpack_require__("../../../../../src/app/services/cityService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -92,19 +138,57 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_3__services_cityService__["a" /* CityService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/cityService.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CityService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CityService = (function () {
+    function CityService(http) {
+        this.http = http;
+    }
+    CityService.prototype.getCities = function () {
+        return this.http.get('./assets/cities.json');
+    };
+    return CityService;
+}());
+CityService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+], CityService);
+
+var _a;
+//# sourceMappingURL=cityService.js.map
 
 /***/ }),
 
@@ -139,9 +223,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* enableProdMode */])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),
