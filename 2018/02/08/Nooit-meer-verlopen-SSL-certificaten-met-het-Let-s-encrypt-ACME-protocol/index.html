@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <meta name="google-site-verification" content="91kBBYu0tPIN7jPUMT4EJ6mlTopay9UGPooxkEKb3Zg">
+    <title>
+        Marco Ippel
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background-color: #dcdcdc">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Marco Ippel
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a target="_blank" href="https://github.com/marcoippel">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/in/marco-ippel-435a4211/">
+                        LinkedIn
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    
+    <h2 class="post-title">
+        Nooit meer verlopen SSL certificaten met het Let&#39;s encrypt ACME protocol
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-02-08
+        </li>
+        <li>
+            Marco Ippel
+        </li>
+    </ul>
+    <div class="post-content">
+        <img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/header.png">
+<p>In mijn vorige post “SSL op je website voor nop” heb ik verteld over gratis ssl op je website en hoe je dit handmatig kunt aanvragen via lets encrypt. Nu is een van de doelen van Let’s Encrypt om het gehele internet op ssl te krijgen. Omdat voor alle websites handmatig ssl certificaten aanvragen en vernieuwen zoveel werk is hebben ze dit volledig geautomatiseerd via het ACME (Automatic Certificate Management Environment) protocol. Ik zal hier een uitleg geven hoe ik dit op een Windows server heb ingericht.</p>
+<h2 id="Wat-is-het-ACME-protocol"><a href="#Wat-is-het-ACME-protocol" class="headerlink" title="Wat is het ACME protocol"></a>Wat is het ACME protocol</h2><p>Het acme protocol is een communicatie protocol voor geautomatiseerde communicatie tussen certificaatautoriteiten en webservers voor een geautomatiseerde uitgifte van public keys. Het is ontworpen door de Internet Security Research Group (ISRG) voor hun Let’s Encrypt service. Het protocol is gebaseerd op json berichten welke over https verstuurd worden. (wikipedia)</p>
+<h2 id="ACME-Client-voor-IIS"><a href="#ACME-Client-voor-IIS" class="headerlink" title="ACME Client voor IIS"></a>ACME Client voor IIS</h2><p>Er zijn verschillende clients voor IIS te vinden op internet en ook heeft Let’s Encrypt een pagina met clients in de verschillende programmeer talen: <a href="https://letsencrypt.org/docs/client-options/" target="_blank" rel="noopener">https://letsencrypt.org/docs/client-options/</a>.</p>
+<p>Ik heb gekozen voor de client “letsencrypt-win-simple” <a href="https://github.com/Lone-Coder/win-acme/wiki" target="_blank" rel="noopener">https://github.com/Lone-Coder/win-acme/wiki</a> dit is een command line applicatie welke certificaten kan aanvragen en automatisch vernieuwen. De documentatie is erg uitgebreid en het is een erg simpel te gebruiken en het heeft veel opties voor het aanvragen en vernieuwen van certificaten. Je kan de laatste release downloaden op <a href="https://github.com/Lone-Coder/win-acme/releases" target="_blank" rel="noopener">https://github.com/Lone-Coder/win-acme/releases</a></p>
+<h2 id="Hoe-werkt-het"><a href="#Hoe-werkt-het" class="headerlink" title="Hoe werkt het"></a>Hoe werkt het</h2><p>Als eerste dien je een website aan te maken in IIS ik ga hier niet omschrijven hoe dit moet ik ga ervan uit dat dit bekend is en anders zijn er genoeg artikelen te vinden hoe dit te doen. Voeg een https binding toe aan de website met een certificaat dit mag een self signed certificaat zijn maar je moet een certificaat opgeven anders kun je geen https binding toevoegen.</p>
+<p>Download de laatste release van “letsencrypt-win-simple” en pak de zip file uit. Omdat je niets hoeft te installeren heb ik de folder gekopieerd naar c:\Program Files (x86)\letsencrypt-win-simple.v1.9.8.4\</p>
+<p>Start nu vanaf de command line letsencrypt.exe je ziet nu een overzichtsscherm.</p>
+<p>Kies voor de optie “N” om een nieuw certificaat aan te vragen.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/0.jpg">
+<p>Kies het type certificaat dat je wilt hebben. Voor de demo heb ik een nieuwe site aangemaakt met als binding demo.ippelsoft.nl ik kies hier dus voor optie 1.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/1.jpg">
+<p>Vervolgens krijg je een overzicht met websites welke geïnstalleerd zijn. Kies hier de website waarvoor je een ssl certificaat wilt aanvragen.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/2.jpg">
+<p>Als je een een site hebt opgegeven wordt het certificaat aangevraagd bij Let’s Encrypt er wordt een domein verificatie gedaan als dit succesvol is wordt het certificaat gedownload en geïmporteerd in je certificate store en aan de iis binding gekoppeld.</p>
+<p>Tevens wordt er een vernieuwing van het certificaat toegevoegd.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/3.jpg">
+<p>Als dit gedaan is dan is je website onder https te bereiken zie hieronder de demo website op https en dit alles in 5 minuten geregeld.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/4.jpg">
+<p>De ssl certificaten worden netjes in de certificate store opgeslagen onder webhosting. Zoals je kunt zien is het certificaat geldig tot 19-05-2018 en de renewal staat gepland voor 14-04-2018 ruim op tijd dus. De certificaten zijn gratis en het vernieuwen gaat compleet automatisch dus wachten tot de 90 dagen zijn verlopen is onnodig.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/5.jpg">
+<h2 id="SSL-automatische-verlenging-van-certificaten"><a href="#SSL-automatische-verlenging-van-certificaten" class="headerlink" title="SSL automatische verlenging van certificaten"></a>SSL automatische verlenging van certificaten</h2><p>Tijdens het aanvragen van de certificaten wordt er een scheduled task aangemaakt in de windows task scheduler. Deze task draait elke dag en kijkt of er certificaten moeten worden vernieuwd. Dit gebeurd geheel automatisch en hier hoef je niets voor te doen. Oke bijna niets, het enigste wat je moet aanpassen aan de scheduled task is de gebruiker welke de task moet uitvoeren. Dit is nu standaard de system gebruiker. Bij mij werkt dit niet omdat die gebruiker geen rechten op IIS heeft. Ik heb dit aangepast naar een gebruiker welke rechten heeft om in IIS wijzigingen door te voeren.</p>
+<img src="/2018/02/08/Nooit-meer-verlopen-SSL-certificaten-met-het-Let-s-encrypt-ACME-protocol/6.jpg">
+<h2 id="Conclusie"><a href="#Conclusie" class="headerlink" title="Conclusie"></a>Conclusie</h2><p>Je kunt niet alleen gratis ssl op je website krijgen je kunt ook nog eens heel veel tijd besparen met het automatisch verlengen van certificaten. Dit is normaal best een klusje en wordt regelmatig vergeten wat dan weer resulteert in foutmeldingen in browsers dat het certificaat niet meer geldig is. Kortom veilig, gratis en automatisch wat wil een beheerder nog meer.</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/automatisch-testen/">automatisch testen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatbot/">chatbot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebookmessenger/">facebookmessenger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets-encrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>

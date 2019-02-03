@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <meta name="google-site-verification" content="91kBBYu0tPIN7jPUMT4EJ6mlTopay9UGPooxkEKb3Zg">
+    <title>
+        Marco Ippel
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background-color: #dcdcdc">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Marco Ippel
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a target="_blank" href="https://github.com/marcoippel">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/in/marco-ippel-435a4211/">
+                        LinkedIn
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    
+    <h2 class="post-title">
+        Je chatbot geautomatiseerd testen met Azure Functions en Azure Queue Storage
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-02-03
+        </li>
+        <li>
+            Marco Ippel
+        </li>
+    </ul>
+    <div class="post-content">
+        
+<h2 id="De-afvalkalender-chatbot"><a href="#De-afvalkalender-chatbot" class="headerlink" title="De afvalkalender chatbot"></a>De afvalkalender chatbot</h2><p>Enige tijd geleden heb ik een Facebook Messenger chatbot gemaakt genaamd De Afvalkalender. Deze chatbot kan je vertellen wanneer je afval wordt opgehaald en je hier ook een reminder voor sturen. Om dit geautomatiseerd te testen heb ik een test methode bedacht waar je elke flow mee kunt testen door middel van een xUnit test of een ander test framework zonder aanpassingen te moeten maken in code. Deze oplossing is toe te passen op elke chatbot waarvan je toegang hebt tot de Facebook Graph url.</p>
+<h2 id="Chatbot-conversatie"><a href="#Chatbot-conversatie" class="headerlink" title="Chatbot conversatie"></a>Chatbot conversatie</h2><p>De chatbot bestaat uit verschillende conversatie flows welke een gebruiker kan doorlopen. Zie hieronder een voorbeeld van de flow van een nieuwe gebruiker welke reminders wil ontvangen wanneer er afval wordt opgehaald.</p>
+<img src="/2019/02/03/chatbot-geautomatiseerd-testen/chat.png">
+<p>Zoals je ziet bestaat zo’n gesprek uit verschillende berichten tussen de chatbot en de bezoeker. Deze flow willen we blijven testen zodat we er zeker van zijn dat na een wijziging in de code gebruikers zich nog steeds kunnen aanmelden voor notificaties.</p>
+<p>De conversatie zoals hierboven gaat voor elke bericht wat de gebruiker stuurt via de volgende flow door de verschillende systemen heen.</p>
+<img src="/2019/02/03/chatbot-geautomatiseerd-testen/Afvalkalender-flow.png">
+<h2 id="Het-probleem"><a href="#Het-probleem" class="headerlink" title="Het probleem"></a>Het probleem</h2><p>Als we de flow willen testen kunnen we rechtstreeks een post maken naar de webhook van de Afvalkalender Api en daarmee met Messenger platform overslaan. Alleen als we een bericht rechtstreeks sturen naar de webhook dan wordt het antwoord toch naar het Messenger platform gestuurd. Dit heeft als gevolg dat we de flow niet geautomatiseerd kunnen testen.</p>
+<img src="/2019/02/03/chatbot-geautomatiseerd-testen/Afvalkalender-flow-xunit.png">
+<h2 id="De-oplossing"><a href="#De-oplossing" class="headerlink" title="De oplossing"></a>De oplossing</h2><p>Door in de configuratie van bijv. de test omgeving de Facebook Graph url te vervangen door een url naar een Azure Function kunnen we de berichten onderscheppen en in een Azure Queue Storage opslaan. Hierna kunnen we in onze test het bericht ophalen en valideren. Op deze manier kunnen we de berichten onderscheppen welke normaal naar het Messenger platform worden gestuurd.</p>
+<img src="/2019/02/03/chatbot-geautomatiseerd-testen/Afvalkalender-flow-azure-function.png">
+<p>De Azure Function maakt een verbinding naar de Azure queue en hij slaat de body van de post op in de Azure Storage Queue. Als dat gedaan is geeft hij pas een status 200 terug waardoor de code in de test methode verder gaat en zodoende weten we zeker dat het bericht in de queue staat.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[FunctionName(&quot;FunctionName&quot;)]</span><br><span class="line">public static async Task&lt;IActionResult&gt; Run([HttpTrigger(AuthorizationLevel.Anonymous, &quot;post&quot;, Route = &quot;me/messages&quot;)] HttpRequest req, ILogger log)</span><br><span class="line">&#123;</span><br><span class="line">	var connectionstrig = Utility.GetEnvironmentVariable(&quot;StorageConnectionString&quot;);</span><br><span class="line">	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionstrig);</span><br><span class="line">	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();</span><br><span class="line">	CloudQueue queue = queueClient.GetQueueReference(&quot;queuename&quot;);</span><br><span class="line"></span><br><span class="line">	string body;</span><br><span class="line">	req.EnableRewind();</span><br><span class="line">	using (StreamReader sr = new StreamReader(req.Body))</span><br><span class="line">	&#123;</span><br><span class="line">		body = sr.ReadToEnd();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	await queue.CreateIfNotExistsAsync();</span><br><span class="line">	CloudQueueMessage message = new CloudQueueMessage(body);</span><br><span class="line">	await queue.AddMessageAsync(message);</span><br><span class="line"></span><br><span class="line">	return (ActionResult)new OkObjectResult(&quot;Ok&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Zie hieronder een voorbeeld test methode welke een bericht post met als tekst “1234AB” naar de webhook van de Afvalkalender Api. Het response moet zijn dat er om het huisnummer wordt gevraagd. Zoals te zien is in de chatbot conversatie.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Fact, TestPriority(1)]</span><br><span class="line">public async Task SendPostalCode()</span><br><span class="line">&#123;</span><br><span class="line">	// create a facebookmessage object</span><br><span class="line">	FacebookMessage facebookMessage = GetFacebookMessage();</span><br><span class="line">	facebookMessage.entry[0].messaging[0].message = new Message()</span><br><span class="line">	&#123;</span><br><span class="line">		// set the text that the customer sends to the chatbot</span><br><span class="line">		text = &quot;1234AB&quot;,</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	// send the message to the webhook of the afvalkalender api</span><br><span class="line">	await SendMessage(facebookMessage);</span><br><span class="line">	</span><br><span class="line">	// get the message from the storage queue</span><br><span class="line">	Messaging message = await GetQueueMessage();</span><br><span class="line">	</span><br><span class="line">	// check if the message response has the correct text</span><br><span class="line">	Assert.Equal(&quot;Wat is je huisnummer?&quot;, message.message.text);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private async Task SendMessage(FacebookMessage facebookMessage)</span><br><span class="line">&#123;</span><br><span class="line">	HttpClient client = new HttpClient();</span><br><span class="line">	JsonSerializerSettings settings = new JsonSerializerSettings &#123; NullValueHandling = NullValueHandling.Ignore, Formatting = Formatting.Indented &#125;;</span><br><span class="line">	HttpContent body = new StringContent(JsonConvert.SerializeObject(facebookMessage, settings), Encoding.UTF8, &quot;application/json&quot;);</span><br><span class="line">	await client.PostAsync(&quot;Azure function Url&quot;, body);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private async Task&lt;Messaging&gt; GetQueueMessage()</span><br><span class="line">&#123;</span><br><span class="line">	CloudQueueMessage retrievedMessage = await _queue.GetMessageAsync();</span><br><span class="line">	if (retrievedMessage != null)</span><br><span class="line">	&#123;</span><br><span class="line">		string message = retrievedMessage.AsString;</span><br><span class="line">		await _queue.DeleteMessageAsync(retrievedMessage);</span><br><span class="line"></span><br><span class="line">		return JsonConvert.DeserializeObject&lt;Messaging&gt;(message);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return new Messaging();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In de afvalkalender worden er nu 4 conversatie flows getest met verschillende stappen. Vereiste is wel dat je de test methodes in de test classes een sort order kunt meegeven zodat je invloed hebt wanneer welke stap wordt uitgevoerd. Voor xUnit is hier een voorbeeld te vinden op: <a href="https://github.com/xunit/samples.xunit/tree/master/TestOrderExamples/TestCaseOrdering" target="_blank" rel="noopener">https://github.com/xunit/samples.xunit/tree/master/TestOrderExamples/TestCaseOrdering</a></p>
+<img src="/2019/02/03/chatbot-geautomatiseerd-testen/test-result.png">
+<h2 id="Conclusie"><a href="#Conclusie" class="headerlink" title="Conclusie"></a>Conclusie</h2><p>Door middel van een een aanpassing van de configuratie en een Azure Function en Queue Storage kun je nu elke flow geautomatiseerd testen of de juiste conversatie wordt gevoerd. Dit geeft weer een hoop meer zekerheid dat de bestaande conversatie flows blijven werken dit komt de kwaliteit weer ten goede.</p>
+<p>Mocht je nog vragen hebben over de implementatie laat het rustig weten.</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/automatisch-testen/">automatisch testen</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatbot/">chatbot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebookmessenger/">facebookmessenger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets-encrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>
