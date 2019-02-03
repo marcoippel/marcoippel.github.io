@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <title>
+        Marco Ippel
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background-color: #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Marco Ippel
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a target="_blank" href="https://github.com/marcoippel">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/in/marco-ippel-435a4211/">
+                        LinkedIn
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    
+    <h2 class="post-title">
+        ssl op je site voor nop
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-02-02
+        </li>
+        <li>
+            Marco Ippel
+        </li>
+    </ul>
+    <div class="post-content">
+        <img src="/2018/02/02/ssl-op-je-site-voor-nop/0.jpg">
+<p>SSL op je website wordt steeds belangrijker alleen de kosten voor ssl certificaten kunnen wel eens oplopen als je meerdere domeinen hebt. Maar wat nu als je gratis ssl certificaten kunt aanvragen ?</p>
+<p>Sinds kort heb ik een aantal applicaties gehost op een eigen vps server en omdat ssl verplicht is als je gebruik wilt maken van bepaalde services bijv. de facebook api moest ik ssl certificaten hebben. Ik wilde er een voor de development omgeving en een voor de productie omgeving en dit voor 2 applicaties het gaat dus om 4 certificaten. Nu zijn certificaten niet heel erg duur voor meerdere certificaten kunnen de kosten toch wel gaan oplopen. Nu kan je bij let’s encrypt gratis ssl certificaten aanvragen.</p>
+<h2 id="Wat-is-let’s-encrypt"><a href="#Wat-is-let’s-encrypt" class="headerlink" title="Wat is let’s encrypt"></a>Wat is let’s encrypt</h2><p>Let’s Encrypt is een certificaatautoriteit opgericht op 16 april 2016. Het geeft X.509 certificaten uit voor het Transport Layer Security (TLS) encryptie-protocol, zonder dat dit kosten met zich meebrengt. De certificaten worden uitgegeven via een geautomatiseerd proces dat is ontworpen om het tot nu toe complexe proces van handmatige validatie, ondertekening, installatie en hernieuwing van certificaten voor beveiligde websites te elimineren. (wikipedia)</p>
+<h2 id="Certificaten-aanvragen-en-installeren"><a href="#Certificaten-aanvragen-en-installeren" class="headerlink" title="Certificaten aanvragen en installeren"></a>Certificaten aanvragen en installeren</h2><p>De certificaten van let’s encrypt zijn 90 dagen geldig en ze geven hier 2 redenen voor.</p>
+<ol>
+<li>Mocht je private key toch in handen komen van de verkeerde mensen is hij na 3 maanden niet meer geldig. Nu is 3 maanden nog steeds erg lang maar in elk geval korter dan 1 jaar want zolang is het gemiddelde certificaat geldig.</li>
+<li>Als we het gehele internet op ssl willen hebben is dit zoveel handmatig werk voor beheerders om overal de certificaten elke keer te verlengen dat het volledig geautomatiseerd kan via let’s encrypt. Omdat alles geautomatiseerd kan worden is het geen issue meer dat de certificaten maar 3 maanden geldig zijn.</li>
+</ol>
+<p>Omdat ik me nog niet heb verdiept in het automatisch verlengen van de certificaten moet ik nog even de certificaten aanvragen op de website <a href="https://www.sslforfree.com/" target="_blank" rel="noopener">https://www.sslforfree.com/</a>. hier kun je verschillenden domeinen opgeven to 100 domeinen of subdomeinen welke allemaal in 1 certificaat worden geplaatst .</p>
+<p>Als de domeinen geverifieerd zijn wordt je certificaat aangemaakt. Je krijgt 3 bestanden:</p>
+<ul>
+<li>ca_bundle.crt</li>
+<li>certificate.crt</li>
+<li>private.key</li>
+</ul>
+<p>Ik heb voor een windows machine een pfx bestand nodig welke ik kan importeren in mijn certificaten store.</p>
+<p>Als je openssl hebt geïnstalleerd op je machine kun je met de volgende regel een pfx bestand maken welke je kan importeren op de webserver.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;C:\Program Files (x86)\GnuWin32\bin\openssl.exe&quot; pkcs12 -export -out &quot;certificate_combined.pfx&quot; -inkey &quot;private.key&quot; -in &quot;certificate.crt&quot; -certfile ca_bundle.crt</span><br></pre></td></tr></table></figure></p>
+<p>Mocht je openssl niet geïnstalleerd hebben kun je het downloaden via de site: <a href="http://gnuwin32.sourceforge.net/packages/openssl.htm" target="_blank" rel="noopener">http://gnuwin32.sourceforge.net/packages/openssl.htm</a></p>
+<h2 id="Certificaat-vernieuwen"><a href="#Certificaat-vernieuwen" class="headerlink" title="Certificaat vernieuwen"></a>Certificaat vernieuwen</h2><p>Als je certificaat bijna verlopen is krijg je een email 1 week, 1 dag en wanneer je certificaat echt verlopen is.</p>
+<p>Als je certificaat bijna verlopen is klik je in je profiel gewoon op renew en wordt er een domein verificatie gedaan als dit succesvol is krijg je weer een nieuw certificaat. Dit nieuwe certificaat kun je weer doormiddel van openssl omzetten naar een pfx en kun je weer 90 dagen vooruit.</p>
+<h2 id="Wildcard-certificaten"><a href="#Wildcard-certificaten" class="headerlink" title="Wildcard certificaten"></a>Wildcard certificaten</h2><p>Let’s encrypt gaat vanaf 27 februari ook wildcard certificaten ondersteunen nu moet je nog meerdere domeinen of subdomeinen opgeven.</p>
+<h2 id="Automatisch-verlengen"><a href="#Automatisch-verlengen" class="headerlink" title="Automatisch verlengen"></a>Automatisch verlengen</h2><p>Het uitgeven van de certificaten gebeurd nu volledig automatisch en het verlengen na 90 dagen kan ook automatisch omdat ik pas net de certificaten heb aangevraagd en dus nog 90 dagen vooruit kan heb ik de certificaten nog even aangevraagd via de website <a href="https://www.sslforfree.com/" target="_blank" rel="noopener">https://www.sslforfree.com/</a> als ik heb uitgevonden hoe dit automatisch te doen zal ik het uitwerken in een artikel.</p>
+<h2 id="Conclusie"><a href="#Conclusie" class="headerlink" title="Conclusie"></a>Conclusie</h2><p>Beveiliging hoeft niet duur te zijn en als je het geautomatiseerd kunt verlengen scheelt dit de beheerder weer een hoop werk en zal je nooit geen certificaat meldingen krijgen op je website omdat je vergeten bent om je certificaat te verlengen.</p>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets-encrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>
