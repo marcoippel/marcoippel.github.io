@@ -5,16 +5,12 @@
         <span class="anim"></span>
         <span class="anim"></span>
         <span class="anim"></span>
-        <a
-          href="https://themeforest.net/item/kura-personal-portfolio-template/33709277"
-          target="_blank"
-          class="pricing-info anim"
-          >-70%</a
-        >
+        <a href="https://themeforest.net/item/kura-personal-portfolio-template/33709277" target="_blank"
+          class="pricing-info anim">-70%</a>
       </div>
 
       <div class="short_info">
-        <img src="img/logo/dark.png" alt="" />
+        <img src="img/logo/logo.png" alt="" />
         <h3>Personal Portfolio Template</h3>
       </div>
       <span class="intro_line"></span>
@@ -34,11 +30,7 @@
             <img src="img/intro/2.png" alt="" />
             <h3 class="title">Dark Demo</h3>
           </div>
-          <router-link
-            class="intro_link"
-            to="/index-dark"
-            target="_blank"
-          ></router-link>
+          <router-link class="intro_link" to="/index-dark" target="_blank"></router-link>
         </div>
       </div>
     </div>

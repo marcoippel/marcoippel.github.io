@@ -275,7 +275,7 @@ h6 { font-size: 16px; }
 	right: 0px;
 	z-index: 10;
 	transform: translateY(-100%);
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -291,7 +291,7 @@ body.opened .kura_tm_topbar{
 	height: auto;
 	clear: both;
 	float: left;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -309,7 +309,7 @@ body.opened .kura_tm_topbar{
 	align-items: center;
 	justify-content: space-between;
 	padding: 30px 37px 30px 50px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -320,7 +320,7 @@ body.opened .kura_tm_topbar{
 	padding: 20px 37px 20px 50px;
 }
 .kura_tm_topbar .logo img{
-	max-width: 70px;
+	max-width: 200px;
 	max-height: 70px;
 }
 .kura_tm_topbar .menu{
@@ -342,7 +342,7 @@ body.opened .kura_tm_topbar{
 	visibility: hidden;
 	position: relative;
 	left: 10px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -361,7 +361,7 @@ body.opened .kura_tm_topbar{
 	text-decoration: none;
 	color: #000;
 	font-family: "Poppins";
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -377,8 +377,8 @@ body.opened .kura_tm_topbar{
 .kura_tm_topbar .trigger{
 	line-height: 1;
 }
-.trigger .hamburger-inner, 
-.trigger .hamburger-inner:after, 
+.trigger .hamburger-inner,
+.trigger .hamburger-inner:after,
 .trigger .hamburger-inner:before{
 	height: 2px;
 	width: 30px;
@@ -486,7 +486,7 @@ body.opened .kura_tm_topbar{
 	opacity: 0;
 	visibility: hidden;
 	top: 20px;
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -535,7 +535,7 @@ body.opened .kura_tm_hero .content .left{
 	display: inline-block;
 	padding: 8px 0px;
 	position: relative;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -548,7 +548,7 @@ body.opened .kura_tm_hero .content .left{
 	width: 17px;
 	height: 17px;
 	left: 10px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -578,7 +578,7 @@ body.opened .kura_tm_hero .content .left{
 	background-color: rgba(0,0,0,.8);
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -602,7 +602,7 @@ body.opened .kura_tm_hero .content .left{
 	visibility: hidden;
 	margin-top: -20px;
 	transition-delay: .3s;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -746,7 +746,7 @@ body.opened .kura_tm_hero .content .left{
 	opacity: 0;
 	visibility: hidden;
 	top: 20px;
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -778,7 +778,7 @@ body.opened .kura_tm_hero .content .right{
 	transform: rotate(0deg);
 	z-index: 2;
 	border-radius: 10px;
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -798,7 +798,7 @@ body.opened .kura_tm_hero .content .right .image .main{
 	transform: rotate(0deg);
 	z-index: 1;
 	border-radius: 10px;
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -807,14 +807,14 @@ body.opened .kura_tm_hero .content .right .image .main{
 }
 body.opened .kura_tm_hero .content .right .image .shape{
 	transform: rotate(-6deg);
-} 
+}
 .kura_tm_hero .down{
 	position: absolute;
 	left: 0px;
 	bottom: 8%;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .4s ease;
 	   -moz-transition: all .4s ease;
 	    -ms-transition: all .4s ease;
@@ -842,7 +842,7 @@ body.opened .kura_tm_hero .down{
 .kura_tm_hero .down a{
 	text-decoration: none;
 	color: #000;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -924,7 +924,7 @@ body.opened .kura_tm_hero .down{
 	z-index: 1;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -942,7 +942,7 @@ body.opened .kura_tm_hero .down{
 	left: 49px;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -972,7 +972,7 @@ body.opened .kura_tm_hero .down{
 	color: #000;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1037,7 +1037,7 @@ body.opened .kura_tm_hero .down{
 	left: 0;
 	transform-origin: left top;
 	transform: scale(0);
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1062,7 +1062,7 @@ body.opened .kura_tm_hero .down{
 .kura_tm_swiper_progress .my_navigation ul li a{
 	text-decoration: none;
 	color: #000;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1098,10 +1098,10 @@ body.opened .kura_tm_hero .down{
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
-	right: 0px;  
+	right: 0px;
     background-image: url(..//img/patterns/white-texture.png);
     background-repeat: repeat;
-    opacity: .6; 
+    opacity: .6;
     z-index: 2;
 }
 .kura_tm_skills:after{
@@ -1183,7 +1183,7 @@ body.opened .kura_tm_hero .down{
 	-webkit-animation: wow 2s cubic-bezier(0.165, 0.840, 0.440, 1.000);  /* Safari 4+ */
 	-moz-animation:    wow 2s cubic-bezier(0.165, 0.840, 0.440, 1.000);  /* Fx 5+ */
 	animation:         wow 2s cubic-bezier(0.165, 0.840, 0.440, 1.000);  /* IE 10+ */
-	width:100%;	
+	width:100%;
 }
 
 @-webkit-keyframes wow {0%{ width:0%; } 100%{ width:100%; }}
@@ -1325,7 +1325,7 @@ body.opened .kura_tm_hero .down{
 	background-color: #fff;
 	box-shadow: 0px 0px 20px rgba(0,0,0,.08);
 	border-radius: 10px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1339,7 +1339,7 @@ body.opened .kura_tm_hero .down{
 	font-size: 18px;
 	color: #000;
 	font-family: "Poppins";
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1361,7 +1361,7 @@ body.opened .kura_tm_hero .down{
 	transform: translateY(-50%);
 	color: #ff4522;
 	margin-top: -1px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1426,7 +1426,7 @@ body.opened .kura_tm_hero .down{
 	z-index: 1;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1445,7 +1445,7 @@ body.opened .kura_tm_hero .down{
 	padding: 0px 40px 45px 49px;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1476,7 +1476,7 @@ body.opened .kura_tm_hero .down{
 	color: #000;
 	opacity: 0;
 	visibility: hidden;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1651,7 +1651,7 @@ body.opened .kura_tm_hero .down{
 .kura_tm_contact .fields .last textarea:focus{
 	outline: none;
 	border: 1px solid rgba(0,0,0,.3);
-} 
+}
 .kura_tm_contact .empty_notice{
 	color: #F52225;
 	margin-bottom: 7px;
@@ -1685,7 +1685,7 @@ body.opened .kura_tm_hero .down{
     padding: 8px 20px;
     position: relative;
 	background-color: #ff4522;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1698,7 +1698,7 @@ body.opened .kura_tm_hero .down{
     width: 17px;
     height: 17px;
     left: 10px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1821,7 +1821,7 @@ body.opened .kura_tm_hero .down{
 	width: 200px;
 	background-color: rgba(0,0,0,1.00);
 	padding: 40px 20px 33px 30px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -1922,7 +1922,7 @@ body.opened .kura_tm_hero .down{
 .kura_tm_settings .direction li a{
 	opacity: .4;
 	text-decoration: none;
-	color: #fff; 
+	color: #fff;
 }
 .kura_tm_settings .direction li a.active{
 	opacity: 1;
@@ -2109,7 +2109,7 @@ body.dark .kura_tm_settings .cursor li .svg,
 .kura_tm_intro .desc{
 	position: relative;
 	top: 0px;
-	
+
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
 	    -ms-transition: all .3s ease;
@@ -2170,13 +2170,13 @@ body.dark .kura_tm_settings .cursor li .svg,
 	bottom: 10%;
 	margin-left: -35px;
 	font-weight: 600;
-		
+
 	-webkit-transition: all 0.2s;
 	   -moz-transition: all 0.2s;
 	    -ms-transition: all 0.2s;
 	     -o-transition: all 0.2s;
-	        transition: all 0.2s;	
-		
+	        transition: all 0.2s;
+
 }
 
 @-webkit-keyframes myAnim {
@@ -2260,7 +2260,7 @@ body.dark .kura_tm_settings .cursor li .svg,
 	.kura_tm_contact .right{width: 100%;padding-left: 0px;}
 	.kura_tm_modalbox .box_inner{width: 500px;}
 	.kura_tm_modalbox .close .svg{width: 40px;height: 40px;}
-	
+
 	.kura_tm_intro .demos img{max-width: 100px;}
 }
 @media (max-width: 768px) {

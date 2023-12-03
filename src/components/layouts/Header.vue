@@ -13,10 +13,7 @@
               </ul>
             </div>
             <div class="trigger">
-              <div
-                class="hamburger hamburger--slider"
-                :class="[isToggled ? `is-active` : ``]"
-              >
+              <div class="hamburger hamburger--slider" :class="[isToggled ? `is-active` : ``]">
                 <div class="hamburger-box" @click="toggleTrueFalse()">
                   <div class="hamburger-inner"></div>
                 </div>
@@ -34,10 +31,7 @@
             <a href="#"><img :src="`/img/logo/${logo}.png`" alt="" /></a>
           </div>
           <div class="trigger">
-            <div
-              class="hamburger hamburger--slider"
-              :class="[isToggled ? `is-active` : ``]"
-            >
+            <div class="hamburger hamburger--slider" :class="[isToggled ? `is-active` : ``]">
               <div class="hamburger-box" @click="toggleTrueFalse()">
                 <div class="hamburger-inner"></div>
               </div>
@@ -64,7 +58,7 @@ export default {
   data() {
     return {
       isToggled: false,
-      logo: "dark",
+      logo: "Shoplogo",
     };
   },
   methods: {
@@ -78,7 +72,7 @@ export default {
     if (window.location.pathname.includes("dark")) {
       this.logo = "logo";
     } else {
-      this.logo = "dark";
+      this.logo = "logo";
     }
   },
   components: { Menu },
