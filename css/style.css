@@ -896,6 +896,7 @@ body.opened .kura_tm_hero .down{
 }
 .kura_tm_portfolio .portfolio_list .image{
 	position: relative;
+	height:410px;
 }
 .kura_tm_portfolio .portfolio_list .image img{
 	position: relative;
