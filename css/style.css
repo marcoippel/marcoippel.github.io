@@ -938,10 +938,8 @@ body.opened .kura_tm_hero .down{
 .kura_tm_portfolio .portfolio_list .details{
 	position: absolute;
 	z-index: 2;
-	bottom: 41px;
-	left: 49px;
-	opacity: 0;
-	visibility: hidden;
+	top: 10px;
+	left: 10px;
 
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
@@ -949,10 +947,7 @@ body.opened .kura_tm_hero .down{
 	     -o-transition: all .3s ease;
 	        transition: all .3s ease;
 }
-.kura_tm_portfolio .portfolio_list .list_inner:hover .details{
-	opacity: 1;
-	visibility: visible;
-}
+
 .kura_tm_portfolio .portfolio_list .details h3{
 	font-size: 20px;
 	font-weight: 700;
