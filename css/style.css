@@ -896,6 +896,7 @@ body.opened .kura_tm_hero .down{
 }
 .kura_tm_portfolio .portfolio_list .image{
 	position: relative;
+	height:410px;
 }
 .kura_tm_portfolio .portfolio_list .image img{
 	position: relative;
@@ -938,10 +939,8 @@ body.opened .kura_tm_hero .down{
 .kura_tm_portfolio .portfolio_list .details{
 	position: absolute;
 	z-index: 2;
-	bottom: 41px;
-	left: 49px;
-	opacity: 0;
-	visibility: hidden;
+	top: 10px;
+	left: 10px;
 
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
@@ -949,10 +948,7 @@ body.opened .kura_tm_hero .down{
 	     -o-transition: all .3s ease;
 	        transition: all .3s ease;
 }
-.kura_tm_portfolio .portfolio_list .list_inner:hover .details{
-	opacity: 1;
-	visibility: visible;
-}
+
 .kura_tm_portfolio .portfolio_list .details h3{
 	font-size: 20px;
 	font-weight: 700;
@@ -1120,7 +1116,7 @@ body.opened .kura_tm_hero .down{
 .kura_tm_skills .skills_inner{
 	width: 100%;
 	float: left;
-	height: auto;
+	height: 280px;
 	clear: both;
 	position: relative;
 	z-index: 3;
@@ -1191,7 +1187,7 @@ body.opened .kura_tm_hero .down{
 @keyframes wow {0%{ width:0%; } 100%{ width:100%; }}
 
 .kura_tm_skills .right{
-	width: 40%;
+	width: 100%;
 	position: absolute;
 	right: 0px;
 	top: 0px;
